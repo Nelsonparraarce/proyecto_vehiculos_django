@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Vehículos</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    {% include 'navbar.html' %}
+</div>    
+  
+  {% block add_vehiculo %}
+  {% load crispy_forms_tags %}
+  
+  <div class="container-fluid mt-4 d-flex justify-content-center align-items-center">
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Guardar</button>
+    </form>
+    
+  </div>
+  {% endblock %}
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
